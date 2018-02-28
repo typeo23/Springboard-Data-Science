@@ -1,2 +1,2 @@
-# DSCT
-Springboard Data Science Course 
+# Springboard Data Science 
+Springboard Data Science  

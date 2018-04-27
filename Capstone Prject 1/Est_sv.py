@@ -24,6 +24,7 @@ from dataset_manipulation_funcs import load_filter_dataset
 import pickle
 
 ##############################################################################
+savedir = 'best_estimators/'
 # Import the dataset
 df = pd.read_csv(
     'Data/income_data_2017_clean_zeros.csv.bz2',
@@ -42,11 +43,12 @@ numerical_features = [
 #prediction label
 labels = ['ERN_VAL']
 features = categorical_features + numerical_features
-X, y = load_filter_dataset('Data/income_data_2017_clean_zeros.csv.bz2',
-                    max_ern=250000, min_ern=5000,
-                    categorical_features=categorical_features, 
-                    numerical_features=numerical_features,
-                    labels=labels, threshold=4000)
+X, y, categorical_index = load_filter_dataset(
+        'Data/income_data_2017_clean_zeros.csv.bz2',
+        max_ern=250000, min_ern=5000,
+        categorical_features=categorical_features, 
+        numerical_features=numerical_features,
+        labels=labels, threshold=40000)
 
 # Spliting to train and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25) 
@@ -86,7 +88,8 @@ print (logistic_estimator.best_params_)
 y_pred = logistic_estimator.predict(X_test)
 print(met.confusion_matrix(y_test,y_pred, labels=[0,1]))
 print(met.f1_score(y_test,y_pred))         
-
+pickle.dump( logistic_estimator, 
+            open( savedir+'Logisitic_Estimator.p', 'wb' ) )
 ##################### Random Forest Classifier ###########################
 #Preparing the pipeline
 steps = [('scaler_encoder', scaler_encoder),
@@ -94,7 +97,7 @@ steps = [('scaler_encoder', scaler_encoder),
 pipeline = Pipeline(steps)
 
 # Meta parameters
-n_estimators = [100, 200, 300, 400]
+n_estimators = [200, 300, 400, 500]
 criterion = ['gini', 'entropy']
 max_features = ['sqrt', 'log2']
 max_depth = [None, 3, 5]
@@ -118,7 +121,8 @@ print (rf_estimator.best_params_)
 y_pred = rf_estimator.predict(X_test)
 print(met.confusion_matrix(y_test,y_pred, labels=[0,1]))
 print(met.f1_score(y_test,y_pred))
-
+pickle.dump( rf_estimator, 
+            open( savedir+'RandomForest_Estimator.p', 'wb' ) )
 ################################### SVC Classifier ##########################
 #Preparing the pipeline
 steps = [('scaler_encoder', scaler_encoder),
@@ -145,7 +149,8 @@ print (rf_estimator.best_params_)
 y_pred = rf_estimator.predict(X_test)
 print(met.confusion_matrix(y_test,y_pred, labels=[0,1]))
 print(met.f1_score(y_test,y_pred))
-
+pickle.dump( svc_estimator, 
+            open( savedir+'SVM_Estimator.p', 'wb' ) )
 ####################3 Saving the results #####################################
 best_params = {'Logistic Regression': 
                {'Parameters': logistic_estimator.best_params_ ,

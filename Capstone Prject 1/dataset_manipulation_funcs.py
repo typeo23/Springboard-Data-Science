@@ -22,7 +22,7 @@ def filter_extreme_earns(df, cutoff=4):
                   for peioocc in  occupations}
     
     #Creating a DataSeries with the the cutoff salary for each individual
-    ouliter_series = filt_col = df.peioocc.map(occ_cutoff)
+    filt_col = df.peioocc.map(occ_cutoff)
     #filtering the outliers
     filt_df = df[df.ern_val < filt_col]
     return filt_df
@@ -79,4 +79,4 @@ def load_filter_dataset(filename, categorical_features, numerical_features,
    # Setting a binary tager from the ern_val column
    y = (df_filt[labels] > threshold).values
     
-   return X, y
+   return X, y, categorical_index

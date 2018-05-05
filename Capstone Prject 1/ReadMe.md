@@ -1,7 +1,7 @@
-# Capstone project 1 "Income Prediction" repository.
+# Capstone project 1 "Lower income prediction based on the 2007 ACS" repository.
 
 The repository contains all the scripts notebooks and submission files for the project : "Lower income prediction based
-on the 2007 ACS survey"
+on the 2007 ACS"
 
 The repository contains the flowing files and directories:
 1. '/Data' - A folder containing all of the datasets used in the project + a code manual

@@ -1,4 +1,4 @@
-# Capstone project 1 "What affects our salary. Analysis and predictions based on the 2007 CPS" repository.
+# Capstone project 1 "What affects our salary. Analysis and predictions based on the 2007 CPS".
 
 
 

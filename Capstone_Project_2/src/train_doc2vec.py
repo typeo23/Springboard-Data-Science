@@ -1,29 +1,23 @@
 import gensim
-import pandas as pd
-from trainingFunctions import return_labeled_docs_from_df
-from trainingFunctions import LabeledLineSentence
+from trainText.trainFolder import LabeledDir
 
-data_dir = '../data/'
-epoches = 300
+"""
+A simple testing scrip
+Train for 40 epochs, the model parameters are largely the defaults
+"""
 
-df = pd.read_json(data_dir+'sample-S2-records', lines=True)
-df = df[df.paperAbstract != '']
-
-labels, docs = return_labeled_docs_from_df(df)
-labeledSents = LabeledLineSentence(docs, labels)
-
-model = gensim.models.Doc2Vec(vector_size=300, window=10, min_count=5,
-                              workers=11, alpha=0.025, min_alpha=0.0025)
-
-model.build_vocab(labeledSents)
+ld = LabeledDir('../data/', 'gz')
+epoches = 40
 
 
-model.train(labeledSents, total_examples=model.corpus_count, epochs=epoches)
+model = gensim.models.Doc2Vec(vector_size=400, window=15, min_count=10,
+                              workers=20)
 
+print ('Building vocabulary.....')
+model.build_vocab(ld)
 
-model.save('doc2vec.model')
-pid1 = df.iloc[17].id
-pid2 = model.docvecs.most_similar(pid1)
-print(df[df.id == pid1].iloc[0].paperAbstract)
-print(df[df.id == pid2[0][0]].iloc[0].paperAbstract)
+print ('Training model.....')
+model.train(ld, total_examples=model.corpus_count, epochs=epoches)
 
+print ('Saving model.....')
+model.save('doc2vec_one_file.model')

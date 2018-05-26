@@ -2,7 +2,7 @@
 
 ### TODO
 
-*[-] Create data filtering scripts
+\[-] Create data filtering scripts
 -[ ] Filter dataset
 -[ ] EDA
 -[ ] tfidf

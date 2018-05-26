@@ -3,6 +3,8 @@
 ### TODO
 
 * [ ] Create scripts to filter dataset 
-* [ ] unchecked # [checkbox:unchecked]
-* [x] checked   # [checkbox:checked]
-* [X] checked   # [checkbox:checked]
+* [ ] EDA
+* [ ] tfid
+* [ ] Mean Glove vectors
+* [ ] LDA
+* [ ] Doc2Vec

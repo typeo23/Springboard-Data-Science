@@ -2,7 +2,7 @@
 
 ### TODO
 
-* [ ] Create scripts to filter dataset # [checkbox:unchecked]
+* [ ] Create scripts to filter dataset 
 * [ ] unchecked # [checkbox:unchecked]
 * [x] checked   # [checkbox:checked]
 * [X] checked   # [checkbox:checked]

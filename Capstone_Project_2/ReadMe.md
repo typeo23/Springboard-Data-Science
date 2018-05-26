@@ -1,6 +1,7 @@
 # Second Capstone Project Repository
 
 ### TODO
+
 -[ ] Create data filtering scripts
 -[ ] Filter dataset
 -[ ] EDA

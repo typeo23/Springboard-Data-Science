@@ -5,6 +5,6 @@
 * [ ] Create scripts to filter dataset 
 * [ ] EDA
 * [ ] tfid
-* [ ] Mean Glove vectors
+* [ ] Mean Word2Vec vectors
 * [ ] LDA
 * [ ] Doc2Vec

@@ -4,7 +4,7 @@
 
 * [X] Create scripts to filter dataset 
 * [X] EDA
-* [ ] tfid
-* [ ] Mean Word2Vec vectors
-* [ ] LDA
+* [X] tfid
+* [X] Mean Word2Vec vectors
+* [X] LDA
 * [X] Doc2Vec

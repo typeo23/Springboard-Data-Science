@@ -1,8 +1,9 @@
-# Capstone project 1 "What affects our salary. Analysis and predictions based on the 2007 CPS".
+# Capstone project 2 "Pulish ME, journal submission recommander system".
 
 
 
-The repository contains all the scripts notebooks and submission files for the project : "What affects our salary. Analysis and predictions based on the 2007 CPS"
+The repository contains all the scripts notebooks and submission files for the project :Capstone project 2 "Pulish ME, journal submission recommander system".
+
 
 The 2007 United States Department of Commerce Current Population Survey (CPS) consists of approximately 200,000 individual records obtained from 60,000 households, from which approximately 100,000 belongs to working adults. In the project an in depth analysis was performed to determine key features which affect our salary. A classier was designed to identify low income individuals. The feature importance provide an insight to the traits that make the most impact on a person salary and compliment the statistical analysis.
 

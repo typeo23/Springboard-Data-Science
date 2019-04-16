@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+    <div class="container">
+        <h1>Publish ME</h1>
+
+        <div class="n-3 pb-5">
+        <p> Finding the right journal to publish your paper in is not always a trivial task. While usually authors write
+        their  paper with a target journal in mind in case of rejection there are not always obvious alternatives. Moreover,
+        the target journal may just be a biased decision based on the author previous experience and does not guarantee that
+            the article will get the best exposure. </p>
+        <p>Based on advanced NLP and deep learning techniques we have created a unique recommended system, which uses an
+        advanced ranking system to recommend publication journal based on your paper abstract. The ranking takes into account
+        published papers similarity, number of sanitation, number of publications in each journal and how active the subject
+            is in a specific journal over the las years. </p>
+
+        <p> Paste your abstract bellow to preform a search and get a recommendation: </p>
+        </div>
+
+
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+
+            <p>
+                 {{ wtf.quick_form(form) }}
+            </p>
+        </form>
+        {% for table in tables %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+    {% endfor %}
+    </div>
+{% endblock %}
+

@@ -1,7 +1,7 @@
 import pandas as pd
 from gensim.models.doc2vec import TaggedDocument
 from nltk.tokenize import RegexpTokenizer
-
+from polyglot.detect import Detector
 
 def return_labeled_docs_from_df(df):
     """
@@ -12,6 +12,12 @@ def return_labeled_docs_from_df(df):
     :return: labels: list of paper id's, docs: list of the corresponding abstracts
     """
     df_filt = df[df.paperAbstract != '']
+    # non_uni = df.paperAbstract.map(lambda x: type(x))
+    # try:
+    #     abstracts_lang = df_filt.paperAbstract.map(lambda x: Detector(x, quiet=True).language.code)
+    # except :
+    #     abstracts_lang = df_filt.paperAbstract.map(lambda x: 'en')
+    # df_filt = df_filt[abstracts_lang == 'en']
     labels = df_filt.id.values
     docs = df_filt.paperAbstract.values
 

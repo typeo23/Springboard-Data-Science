@@ -24,14 +24,15 @@ def meaningful_lines(x, line_length, paragraph_length):
 data_dir = '../data/'
 filename = 's2-corpus-00.gz'
 out_dir = '../data/csv/'
-out_filename = filename.split('.')[0]+'test2'+'.csv'
-columns_to_keep = ['id',  'paperAbstract', 'title', 'year', 'journalName']
+out_filename = filename.split('.')[0]+'test_cites'+'.csv'
+columns_to_keep = ['id',  'paperAbstract', 'title', 'year', 'journalName' , 'numCites']
 
 reader = pd.read_json(data_dir+filename, lines=True, chunksize=1e5)
 
 # header only for the first chunk
 first = True
 for df in reader:
+    df['numCites'] = df.inCitations.map(len)
     df = df[columns_to_keep]
     df = df[df.journalName != '']
     df = df[df.paperAbstract.map(lambda x: meaningful_lines(x, 4, 6))]

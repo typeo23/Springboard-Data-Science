@@ -18,7 +18,7 @@ while decrement:
         maxInt = int(maxInt/10)
         decrement = True
 
-df = pd.read_csv(open('../data/csv/s2-corpus-00test2.csv', 'rU'), engine='c')
+df = pd.read_csv(open('../data/csv/s2-corpus-00test_cites.csv', 'rU'), engine='c')
 lang = []
 for i, abstract in enumerate(df.paperAbstract.values):
     try:
@@ -26,4 +26,4 @@ for i, abstract in enumerate(df.paperAbstract.values):
     except:
         lang.append('unKnown')
 df['lang'] = lang
-df.to_csv('../data/csv/s2-corpus-002_lang.csv')
+df.to_csv('../data/csv/s2-corpus-002_lang_cites.csv')
